@@ -2,17 +2,17 @@
 Automated Digital Photo Collage
 
 ## Authors
--Tommy Mintz https://github.com/TommyMintz/
+Tommy Mintz https://github.com/TommyMintz/
 
 ## Description
-An interactive collage using a raspberry pi and a webcam 
+An interactive collage using a raspberry pi and a webcam. Written in Python 
 
 ## Link to Prototype
 NOTE: If your project lives online you can add one or more links here. Make sure you have a stable version of your project running before linking it.
 
 [Documentation](http://tommymintz.com/adpc/ "Documentation")
 
-## Example Code
+## Source Code
 NOTE: Wrap your code blocks or any code citation by using ``` like the example below.
 ```
 #!/usr/bin/python
@@ -251,10 +251,7 @@ def main():
   
 if __name__== '__main__': main()
 ```
-## Links to External Libraries
- NOTE: You can also use this space to link to external libraries or Github repositories you used on your project.
 
-[Example Link](http://www.google.com "Example Link")
 
 ## Images & Videos
 NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
