@@ -1,5 +1,4 @@
-Insert a description to describe your update to document your creative process. The Commissioned Interactive Artists will be doing the same so you can reference their Project Posts.
+I'm an artist using code to create photographic collages
 
-![Example Image](../project_images/cover.jpg?raw=true "Example Image")
+![Example Image](../project_images/23rd st 12lg.jpg?raw=true "Example Image")
 
-https://www.youtube.com/watch?v=30yGOxJJ2PQ
