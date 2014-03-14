@@ -8,59 +8,15 @@ Tommy Mintz https://github.com/TommyMintz/
 An interactive collage using a raspberry pi and a webcam. Written in Python 
 
 ## Link to Prototype
-NOTE: If your project lives online you can add one or more links here. Make sure you have a stable version of your project running before linking it.
+
 
 [Documentation](http://tommymintz.com/adpc/ "Documentation")
 
-## Source Code
-NOTE: Wrap your code blocks or any code citation by using ``` like the example below.
+## Sample Code
+
 ```
-#!/usr/bin/python
-#
-#The Automated Digital Photo Collage
-#A program that renders a time lapse collage
-#
-#http://tommymintz.com/adpc/
-#
-#Released under the GNU General Public Liscence
-#
-#January 2013
-#
-#ver 1.1.25
-
-import pygame
-import pygame.camera
-import numpy
-from pygame.locals import *
-import sys
-import os
-import subprocess
-import time
-
-#creates 'numgen.py' and sets numgen.imgno=1 if numgen.py file is not found.
-sys.path.append('~/')
-try:
-  import numgen
-  print 'numgen file found. numgen.imgno =', numgen.imgno
-except ImportError, err:
-  print 'no numgen file found. generated new sequence.'
-  f = open('numgen.py', 'w')
-  initialwrite = f.write('imgno = 1\n')
-  f.close()
-  import numgen
-  print 'numgen imagenumber is now', numgen.imgno  
 
 
-
-
-# adds 1 to the numgen.imgno variable and writes it to the numgen.py file... set to 'a' on keyboard in main loop
-def adder():
-  f = open('numgen.py', 'w')
-  numgen.imgno +=1
-  initialwrite = f.write('imgno = %s' %(numgen.imgno))
-  f.close()
-  
-  print 'numgen is now', numgen.imgno
 
 
 #initialise camera
@@ -86,44 +42,6 @@ def blurSurf(surface, amt):
       surf = pygame.transform.smoothscale(surface, scale_size)
       surf = pygame.transform.smoothscale(surf, surf_size)
       return surf
-
-#Toggle fullscreen with spacebar
-def toggle_fullscreen():
-  screen = pygame.display.get_surface()
-  tmp = screen.convert()
-  caption = pygame.display.get_caption()
-  #cursor = pygame.mouse.get_cursor()
-
-  w,h = screen.get_width(), screen.get_height()
-  flags = screen.get_flags()
-  bits = screen.get_bitsize()
-
-  pygame.display.quit()
-  pygame.display.init()
-
-  screen = pygame.display.set_mode((w,h),flags^FULLSCREEN,bits)
-    
-  screen.blit(tmp,(0,0))
-  pygame.display.set_caption(*caption)
-
-  pygame.key.set_mods(0)
-  pygame.mouse.set_visible(0)
-
-  return screen
-
-
-#----PRINT----# 
-def printer():
-  #printer() takes last imagecollage.jpg and prints  via lp?
-  num = numgen.imgno - 3 
-  print 'got num', num, 'numgen.imgno is', numgen.imgno
-  try:
-    printfeed = 'lp ~/imgcollage%s.jpg' % num
-    print printfeed
-    printer = subprocess.Popen([printfeed],shell=True)
-    print 'print command sent'
-  except Exception, e:
-    print 'exception caught:', e, sys.exc_info()[0]
 
     
 #-------COLLAGE--------#
@@ -190,72 +108,12 @@ def collage():
   
   return imgcollage
 
-#-------MAIN--------#  
 
-
-def main():
-  #initialise scren
-  os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
-  pygame.init()  
-  global screen
-  screen = pygame.display.set_mode ((800,600), pygame.FULLSCREEN)#opens pygame fullscreen
-  #screen = pygame.display.set_mode ((800,600))#open pygame screen that is 800 x 600 pixels
-  pygame.display.set_caption('ADPC')
-  pygame.mouse.set_visible(0) #Hide mouse
-
-  #fill backgroaund
-  global background
-  background = pygame.Surface(screen.get_size())
-  background = background.convert()    # sets pixel format to match screen
-  background.fill((255,255,255))  #make white rectangle size of background on background surface
-
-  #display some text
-  font = pygame.font.Font(None, 36)
-  text = font.render("Hello. Just a moment, please.", 1, (10, 10, 10))
-  textpos = text.get_rect()
-  textpos.centerx = background.get_rect().centerx
-  textpos.centery = background.get_rect().centery
-  background.blit(text, textpos)  # blit text to surface
-
-  screen.blit(background, (0,0))  # blit surface to screen
-
-  pygame.display.flip()
-
-  clock = pygame.time.Clock()
-
-
-  background.fill((255,255,255))
-  text = font.render("The Automated Digital Photo Collage is ready.", 1, (10, 10, 10))
-  textpos = text.get_rect()
-  textpos.centerx = background.get_rect().centerx
-  textpos.centery = background.get_rect().centery
-  background.blit(text, textpos)  # blit text to surface
-  screen.blit(background, (0,0))  # blit surface to screen
-  pygame.display.flip()
-  screen.blit(background, (0,0))  # blit surface to screen
-  pygame.display.flip()
-  background.fill((255,255,255))
-  clock.tick(1)
-    
-  temp = collage() #set temp to return of collage using img1 from motion detect...should be..36th collage
-  screen.blit(temp, (0,0)) #should show 36th collage
-  print 'print being sent now'
-  printer()
-  clock.tick(30000)#have program show last collage for a few seconds
-            
-  print 'autorestarting'
-  executable = sys.executable
-  args=sys.argv[:]
-  args.insert(0, sys.executable)
-  os.execvp(executable, args)
-  
-if __name__== '__main__': main()
 ```
 
 
 ## Images & Videos
-NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
+
 
 ![Two Views of ADPC](http://tommymintz.com/adpc/installation-and-street-view-of-adpc.jpg "ADPC views")
 
-https://www.youtube.com/watch?v=30yGOxJJ2PQ
