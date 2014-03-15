@@ -117,3 +117,4 @@ def collage():
 
 ![Two Views of ADPC](http://tommymintz.com/adpc/installation-and-street-view-of-adpc.jpg "ADPC views")
 
+[video of sequence of ADPC generated images](https://www.youtube.com/watch?v=vxeggjzgJmo “https://www.youtube.com/watch?v=vxeggjzgJmo”)
