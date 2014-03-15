@@ -1,8 +1,7 @@
-# Project Title
-Automated Digital Photo Collage
 
-## Authors
-Tommy Mintz https://github.com/TommyMintz/
+#Automated Digital Photo Collage
+
+##Tommy Mintz https://github.com/TommyMintz/
 
 ## Description
 An interactive collage using a raspberry pi and a webcam. Written in Python 
