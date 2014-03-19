@@ -1,16 +1,18 @@
 {
     "technologies": {
         "apis": [
-            "insert apis"
+            “none”
         ],
         "platforms": [
-            "raspberry pi"
+            "raspberrypi”,
+	    
         ],
         "toolkits": [
-            “pygame”
+            “Pygame”,
+	    “Python”
         ]
     },
     "themes": [
-        "insert themes"
+        “none”
     ]
 }
